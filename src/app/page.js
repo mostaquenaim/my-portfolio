@@ -14,14 +14,17 @@ export default function Home() {
         />
         <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
+            Meet <strong>Naim</strong> — a Bangladeshi software engineer and web developer
+            at Sammtech, passionate about clean code, discipline, and personal growth.
+          </li>
+          <li className="mb-2 tracking-[-.01em]">
+            He graduated from AIUB with a <strong>CGPA of 3.94</strong>, proving he doesn’t just aim high — he gets there.
+          </li>
+          <li className="mb-2 tracking-[-.01em]">
+            Naim is currently leveling up in life — hitting the gym, building software, and planning for a <strong>Master's abroad</strong> in Spring.
           </li>
           <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
+            This app is powered by the App Router of Next.js — just like Naim, it's modern, scalable, and clean.
           </li>
         </ol>
 
