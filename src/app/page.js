@@ -5,11 +5,13 @@ import AboutSection from './components/AboutSection';
 import ProjectsSection from './components/ProjectsSection';
 import AchievementsSection from './components/AchievementsSection';
 import ContactSection from './components/ContactSection';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
     <div className="bg-gradient-to-br from-white to-gray-50">
-      
+      <Navbar />
       <main className="pt-20">
         {/* Hero Section */}
         <section id="home" className="min-h-screen flex items-center justify-center">
@@ -36,7 +38,7 @@ export default function Home() {
           <ContactSection />
         </section>
       </main>
-
+      <Footer />
     </div>
   );
 }
