@@ -1,9 +1,21 @@
 'use client';
 
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Stars, Text } from '@react-three/drei';
-import { useRef } from 'react';
+import { useRef, useMemo, useState } from 'react';
 import * as THREE from 'three';
+import { TextureLoader } from 'three';
+
+const techIcons = [
+  { name: 'React', color: '#ffffff', url: 'https://reactjs.org', image: '/logos/react.png' },
+  { name: 'Next.js', color: '#ffffff', url: 'https://nextjs.org', image: '/logos/next.png' },
+  { name: 'NestJS', color: '#ffffff', url: 'https://nestjs.com', image: '/logos/nest.png' },
+  { name: 'PostgreSQL', color: '#ffffff', url: 'https://www.postgresql.org', image: '/logos/postgres.png' },
+  { name: 'MongoDB', color: '#ffffff', url: 'https://www.mongodb.com', image: '/logos/mongo.png' },
+  { name: 'TypeScript', color: '#ffffff', url: 'https://www.typescriptlang.org', image: '/logos/ts.png' },
+  { name: 'Tailwind', color: '#ffffff', url: 'https://tailwindcss.com', image: '/logos/tailwind.png' },
+  { name: 'Docker', color: '#ffffff', url: 'https://www.docker.com', image: '/logos/Docker.png' },
+];
 
 const TechSphere = () => {
   return (
@@ -21,35 +33,46 @@ const TechSphere = () => {
 const RotatingSphere = () => {
   const meshRef = useRef();
 
+  const textures = useMemo(() => useLoader(TextureLoader, techIcons.map(icon => icon.image)), []);
+
   useFrame(({ clock }) => {
     if (meshRef.current) {
       meshRef.current.rotation.y = clock.getElapsedTime() * 0.2;
     }
   });
 
-  const techIcons = [
-    { name: 'React', color: '#61DAFB' },
-    { name: 'Next.js', color: '#000000' },
-    { name: 'NestJS', color: '#E0234E' },
-    { name: 'PostgreSQL', color: '#336791' },
-    { name: 'MongoDB', color: '#47A248' },
-    { name: 'TypeScript', color: '#3178C6' },
-    { name: 'Tailwind', color: '#38B2AC' },
-    { name: 'Docker', color: '#2496ED' },
-  ];
-
   return (
     <group ref={meshRef}>
       {techIcons.map((tech, i) => {
+        const [hovered, setHovered] = useState(false);
+
         const phi = Math.acos(-1 + (2 * i) / techIcons.length);
         const theta = Math.sqrt(techIcons.length * Math.PI) * phi;
         const position = new THREE.Vector3().setFromSphericalCoords(2.5, phi, theta);
 
         return (
-          <group key={tech.name} position={position}>
-            <mesh>
-              <sphereGeometry args={[0.2, 16, 16]} />
-              <meshStandardMaterial color={tech.color} />
+          <group
+            key={tech.name}
+            position={position}
+            onClick={() => window.open(tech.url, '_blank')}
+            onPointerOver={() => {
+              document.body.style.cursor = 'pointer';
+              setHovered(true);
+            }}
+            onPointerOut={() => {
+              document.body.style.cursor = 'auto';
+              setHovered(false);
+            }}
+          >
+            <mesh scale={hovered ? 1.5 : 1}>
+              <planeGeometry args={[0.5, 0.5]} />
+              <meshBasicMaterial 
+                map={textures[i]} 
+                transparent={true}
+                alphaTest={0.5}
+                opacity={1}
+                side={THREE.DoubleSide}
+              />
             </mesh>
             <TextLabel text={tech.name} color={tech.color} />
           </group>

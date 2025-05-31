@@ -8,10 +8,10 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+      <div className="flex flex-col items-center justify-center gap-12">
         {/* Left - 3D Sphere */}
         <motion.div 
-          className="w-full lg:w-1/2 h-[400px] lg:h-[500px] flex justify-center items-center"
+          className="w-full h-[400px] lg:h-[500px] flex justify-center items-center bg-black"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
@@ -21,7 +21,7 @@ export default function HeroSection() {
 
         {/* Right - Hero Content */}
         <motion.div 
-          className="w-full lg:w-1/2 space-y-8 text-center lg:text-left"
+          className="w-full space-y-8 text-center lg:text-left"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2 }}
