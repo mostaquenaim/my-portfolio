@@ -7,15 +7,23 @@ import * as THREE from 'three';
 import { TextureLoader } from 'three';
 
 const techIcons = [
+  { name: 'Docker', color: '#ffffff', url: 'https://www.docker.com', image: '/logos/docker.png' },
+  { name: 'PostgreSQL', color: '#ffffff', url: 'https://www.postgresql.org', image: '/logos/postgres.png' },
+  { name: 'NestJS', color: '#ffffff', url: 'https://nestjs.com', image: '/logos/nest.png' },
   { name: 'React', color: '#ffffff', url: 'https://reactjs.org', image: '/logos/react.png' },
   { name: 'Next.js', color: '#ffffff', url: 'https://nextjs.org', image: '/logos/next.png' },
-  { name: 'NestJS', color: '#ffffff', url: 'https://nestjs.com', image: '/logos/nest.png' },
-  { name: 'PostgreSQL', color: '#ffffff', url: 'https://www.postgresql.org', image: '/logos/postgres.png' },
   { name: 'MongoDB', color: '#ffffff', url: 'https://www.mongodb.com', image: '/logos/mongo.png' },
   { name: 'TypeScript', color: '#ffffff', url: 'https://www.typescriptlang.org', image: '/logos/ts.png' },
   { name: 'Tailwind', color: '#ffffff', url: 'https://tailwindcss.com', image: '/logos/tailwind.png' },
-  { name: 'Docker', color: '#ffffff', url: 'https://www.docker.com', image: '/logos/Docker.png' },
+  { name: 'Git', color: '#ffffff', url: 'https://git-scm.com', image: '/logos/git.png' },
+  { name: 'Trello', color: '#ffffff', url: 'https://trello.com', image: '/logos/trello.png' },
+  { name: 'Node.js', color: '#ffffff', url: 'https://nodejs.org', image: '/logos/node.png' },
+  { name: 'JWT', color: '#ffffff', url: 'https://jwt.io', image: '/logos/jwt.png' },
+  { name: 'DevTools', color: '#ffffff', url: 'https://developer.chrome.com/docs/devtools', image: '/logos/devtools.png' },
+  { name: 'Digital Ocean App Platform', color: '#ffffff', url: 'https://www.digitalocean.com', image: '/logos/digital-ocean.png' },
+  { name: 'Vercel', color: '#ffffff', url: 'https://vercel.com', image: '/logos/vercel.jpg' },
 ];
+
 
 const TechSphere = () => {
   return (

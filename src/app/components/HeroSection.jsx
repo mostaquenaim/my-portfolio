@@ -6,12 +6,15 @@ import TechSphere from './3d/TechSphere';
 import { motion } from 'framer-motion';
 
 export default function HeroSection() {
+  const name = `Mostaque Ahammed Naim`
+  const position = `Junior Software Developer`
+  const aboutme = `I craft performant, scalable, and modern web solutions using cutting-edge technologies. Currently coding at Sammtech Ltd as a passionate Software Developer.`
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="flex flex-col items-center justify-center gap-12">
         {/* Left - 3D Sphere */}
         <motion.div 
-          className="w-full h-[400px] lg:h-[500px] flex justify-center items-center bg-black"
+          className="w-full h-[300px] lg:h-[500px] flex justify-center items-center bg-black"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
@@ -27,15 +30,15 @@ export default function HeroSection() {
           transition={{ duration: 1.2 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent leading-tight">
-            Mostaque Ahammed Naim
+            {name}
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
-            Full Stack Software Engineer
+            {position}
           </h2>
 
           <p className="text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
-            I craft performant, scalable, and modern web solutions using cutting-edge technologies. Currently coding at Sammtech Ltd as a passionate full stack developer.
+            {aboutme}
           </p>
 
           {/* Buttons */}
