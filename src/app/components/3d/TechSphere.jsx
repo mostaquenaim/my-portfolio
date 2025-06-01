@@ -7,7 +7,7 @@ import * as THREE from 'three';
 import { TextureLoader } from 'three';
 
 const techIcons = [
-  { name: 'Docker', color: '#ffffff', url: 'https://www.docker.com', image: '/logos/docker.png' },
+  { name: 'Docker', color: '#ffffff', url: 'https://www.docker.com', image: '/logos/Docker.png' },
   { name: 'PostgreSQL', color: '#ffffff', url: 'https://www.postgresql.org', image: '/logos/postgres.png' },
   { name: 'NestJS', color: '#ffffff', url: 'https://nestjs.com', image: '/logos/nest.png' },
   { name: 'React', color: '#ffffff', url: 'https://reactjs.org', image: '/logos/react.png' },
