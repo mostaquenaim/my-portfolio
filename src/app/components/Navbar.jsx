@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { FaGithub, FaLinkedin, FaCode } from 'react-icons/fa'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -53,7 +54,13 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-              MN
+              <Image
+                src="/images/strix-g-2022-green.png" // Make sure this path is correct
+                alt="Logo"
+                width={48}
+                height={48}
+                className="object-contain"
+              />
             </div>
           </Link>
 
