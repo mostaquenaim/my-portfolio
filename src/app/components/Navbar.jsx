@@ -8,15 +8,25 @@ import { usePathname } from 'next/navigation'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
   const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
+      const sections = ['about', 'projects', 'achievements', 'contact']
+      const scrollY = window.scrollY + 100
+
+      let found = ''
+      for (let section of sections) {
+        const el = document.getElementById(section)
+        if (el && el.offsetTop <= scrollY && el.offsetTop + el.offsetHeight > scrollY) {
+          found = section
+          break
+        }
       }
+
+      setActiveSection(found)
+      setScrolled(window.scrollY > 10)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -30,6 +40,12 @@ const Navbar = () => {
     { name: 'Achievements', path: '#achievements' },
     { name: 'Contact', path: '#contact' },
   ]
+
+  const getLinkClass = (link) => {
+    if (link.path === '/' && pathname === '/') return 'text-blue-600'
+    if (link.path.startsWith('#') && activeSection && link.path === `#${activeSection}`) return 'text-blue-600'
+    return 'text-gray-700 hover:text-blue-500'
+  }
 
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
@@ -47,7 +63,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.path}
-                className={`text-lg font-medium transition-colors ${pathname === link.path ? 'text-blue-600' : 'text-gray-700 hover:text-blue-500'}`}
+                className={`text-lg font-medium transition-colors ${getLinkClass(link)}`}
               >
                 {link.name}
               </Link>
@@ -97,7 +113,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.path}
-                className={`block text-lg font-medium ${pathname === link.path ? 'text-blue-600' : 'text-gray-700 hover:text-blue-500'}`}
+                className={`block text-lg font-medium ${getLinkClass(link)}`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -115,7 +131,7 @@ const Navbar = () => {
               </a>
             </div>
             <Link
-              href="/contact"
+              href="#contact"
               className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium hover:shadow-lg transition-all"
               onClick={() => setIsOpen(false)}
             >

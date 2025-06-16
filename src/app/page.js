@@ -5,6 +5,7 @@ import AboutSection from './components/AboutSection';
 import ProjectsSection from './components/ProjectsSection';
 import AchievementsSection from './components/AchievementsSection';
 import ContactSection from './components/ContactSection';
+import PublicationsSection from './components/PublicationsSection';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -26,6 +27,11 @@ export default function Home() {
         {/* Projects Section */}
         <section id="projects" className="py-24 bg-gray-50">
           <ProjectsSection />
+        </section>
+
+        {/* Publications Section */}
+        <section id="publications" className="py-24 bg-white">
+          <PublicationsSection />
         </section>
 
         {/* Achievements Section */}

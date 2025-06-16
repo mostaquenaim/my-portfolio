@@ -118,23 +118,6 @@ export default function ProjectsSection() {
           </motion.div>
         ))}
       </div>
-
-      {/* Other Projects */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {otherProjects.map((project, index) => (
-          <div
-            key={index}
-            className="cursor-pointer relative group overflow-hidden rounded-lg border border-gray-300 bg-white transition-transform transform hover:scale-105 hover:z-10"
-          >
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-80 transition-opacity"></div>
-            <div className="absolute inset-0 flex flex-col items-center text-center justify-center opacity-0 group-hover:opacity-100 transition-opacity p-8">
-              <h2 className="text-white text-xl font-bold mb-2">{project.title}</h2>
-              <p className="text-white opacity-70 text-sm">{project.description}</p>
-            </div>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 }

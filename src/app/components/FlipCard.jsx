@@ -7,15 +7,24 @@ const FlipCard = ({ achievement }) => {
   const [isFlipped, setIsFlipped] = useState(false)
 
   return (
-    <div 
-      className="flip-card h-72 w-full perspective-1000"
+    <div
+      className="h-72 w-full"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
     >
-      <div className={`flip-card-inner relative w-full h-full transition-transform duration-700 transform-style ${isFlipped ? 'rotate-y-180' : ''}`}>
-        {/* Front Side */}
-        <div className="flip-card-front absolute w-full h-full backface-hidden">
-          <div className="relative w-full h-full rounded-xl overflow-hidden">
+      <div className="relative w-full h-full [perspective:1000px]">
+        <div
+          className={`relative rounded-xl shadow-lg shadow-black w-full h-full transition-transform duration-700 transform ${isFlipped ? 'rotate-y-180' : ''
+            }`}
+          style={{
+            transformStyle: 'preserve-3d',
+          }}
+        >
+          {/* Front Side */}
+          <div
+            className="absolute w-full h-full rounded-xl overflow-hidden"
+            style={{ backfaceVisibility: 'hidden' }}
+          >
             <Image
               src={achievement.image}
               alt={achievement.title}
@@ -23,13 +32,23 @@ const FlipCard = ({ achievement }) => {
               className="object-cover"
             />
           </div>
-        </div>
-        
-        {/* Back Side */}
-        <div className={`flip-card-back absolute w-full h-full backface-hidden bg-gradient-to-b ${achievement.bgGradient} rounded-xl p-6 flex flex-col items-center justify-center text-white`}>
-          <h3 className="text-xl font-bold mb-2 text-center">{achievement.title}</h3>
-          <p className="text-sm font-medium mb-3">{achievement.period}</p>
-          <p className="text-xs text-center opacity-80">{achievement.description}</p>
+
+          {/* Back Side */}
+          <div
+            className={`absolute w-full h-full rounded-xl p-6 flex flex-col items-center justify-center transform rotate-y-180 text-white bg-gradient-to-b ${achievement.bgGradient || ' from-gray-800 to-gray-900'
+              }`}
+            style={{ backfaceVisibility: 'hidden' }}
+          >
+            <h3 className="text-2xl font-bold mb-2 text-center drop-shadow-sm drop-shadow-black">
+              {achievement.title}
+            </h3>
+            <p className="text-sm font-medium mb-3 opacity-90">
+              {achievement.period}
+            </p>
+            <p className="text-sm text-center opacity-80 leading-relaxed">
+              {achievement.description}
+            </p>
+          </div>
         </div>
       </div>
     </div>

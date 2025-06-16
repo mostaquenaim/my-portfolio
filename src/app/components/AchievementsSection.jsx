@@ -12,7 +12,7 @@ const achievements = [
     title: "Programming Contest - 6th DRMC International Tech Carnival 2023",
     period: "2023",
     description: "We attended DRMC programming contest in 2023. It was an online competition.",
-    image: "/images/codingcompetitionblog-23489.webp",
+    image: "/images/programming-contest.png",
     bgGradient: "from-orange-400 via-blue-950 to-orange-400"
   },
   {

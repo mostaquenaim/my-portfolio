@@ -16,7 +16,7 @@ export default function AboutSection() {
         <div className="w-full lg:w-1/3 flex justify-center">
           <div className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl hover:shadow-2xl transition-shadow">
             <Image
-              src="/images/profile.PNG"
+              src="/images/thesis-day-formal-jpg.jpg" 
               alt="Mostaque Naim"
               fill
               className="object-cover hover:scale-105 transition-transform"
