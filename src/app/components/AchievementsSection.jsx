@@ -91,8 +91,22 @@ export default function Achievements() {
           Awards & Certifications
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {achievements.map((achievement) => (
-            <FlipCard key={achievement.title} achievement={achievement} />
+          {achievements.map((achievement, index) => (
+            <motion.div
+              key={achievement.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.06 }}
+              viewport={{ once: true }}
+              className="bg-surface border border-border rounded-xl p-6 hover:border-accent/50 transition-colors"
+            >
+              <div className="w-10 h-10 rounded-lg bg-background border border-border flex items-center justify-center text-accent mb-4">
+                <achievement.icon size={17} />
+              </div>
+              <h4 className="font-semibold text-foreground mb-1">{achievement.title}</h4>
+              <p className="text-xs font-mono text-muted mb-3">{achievement.period}</p>
+              <p className="text-sm text-muted leading-relaxed">{achievement.description}</p>
+            </motion.div>
           ))}
         </div>
       </div>
