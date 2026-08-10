@@ -24,13 +24,13 @@ export default function AboutSection() {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           {/* Profile Image */}
           <div className="w-full lg:w-1/3 flex justify-center lg:sticky lg:top-28">
-            <div className="relative w-56 h-56 lg:w-72 lg:h-72 rounded-2xl overflow-hidden border border-border">
+            <div className="relative w-56 h-56 lg:w-72 lg:h-72 rounded-2xl overflow-hidden">
               <Image
                 src="/images/thesis-day-formal-jpg.jpg"
                 alt="Mostaque Naim"
                 fill
                 sizes="(min-width: 1024px) 288px, 224px"
-                className="object-cover"
+                className="object-cover -scale-x-100"
                 priority
               />
             </div>

@@ -6,7 +6,10 @@
       "Bash(npx --yes playwright --version)",
       "Bash(npx playwright *)",
       "Bash(node check.mjs)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(rm -f \"src/app/components/FlipCard.jsx\")",
+      "Bash(rm -f \"public/images/deanAward.jpg\" \"public/images/programming-contest.png\" \"public/images/data structure.png\" \"public/images/dexterity.jpg\" \"public/images/hackathon.jpg\" \"public/images/cisco.jpg\")",
+      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:3000 >/dev/null 2>&1 || curl -sf http://localhost:3001 >/dev/null 2>&1; do sleep 1; done')"
     ]
   }
 }
