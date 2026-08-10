@@ -1,4 +1,7 @@
+'use client';
+
 import { motion } from 'framer-motion';
+import SectionHeading from './ui/SectionHeading';
 
 const experience = [
   {
@@ -34,15 +37,7 @@ const experience = [
 export default function ExperienceSection() {
   return (
     <div className="container mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="font-mono text-accent text-sm mb-2">02. Experience</h2>
-        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-12">Where I've worked</h1>
-      </motion.div>
+      <SectionHeading eyebrow="02. Experience" title="Where I've worked" />
 
       <div className="max-w-3xl space-y-8">
         {experience.map((job, index) => (
@@ -52,9 +47,16 @@ export default function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
+            whileHover={{ x: 4 }}
             className="relative pl-8 border-l-2 border-border"
           >
-            <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-accent" />
+            <motion.span
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 + 0.2, type: 'spring' }}
+              viewport={{ once: true }}
+              className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-accent"
+            />
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-3">
               <h3 className="text-lg font-semibold text-foreground">
                 {job.role} &middot; <span className="text-muted font-normal">{job.company}</span>

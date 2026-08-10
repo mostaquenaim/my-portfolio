@@ -1,4 +1,7 @@
+'use client';
+
 import { motion } from 'framer-motion';
+import SectionHeading from './ui/SectionHeading';
 import {
   SiReact,
   SiNextdotjs,
@@ -82,17 +85,7 @@ const exploring = [
 export default function SkillsSection() {
   return (
     <div className="container mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="font-mono text-accent text-sm mb-2">05. Skills</h2>
-        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
-          What I work with
-        </h1>
-      </motion.div>
+      <SectionHeading eyebrow="05. Skills" title="What I work with" />
 
       <div className="space-y-8 mb-12">
         {skillGroups.map((group, index) => (
@@ -106,17 +99,28 @@ export default function SkillsSection() {
             <p className="text-xs font-mono uppercase tracking-wider text-muted mb-3">
               {group.label}
             </p>
-            <div className="flex flex-wrap gap-3">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ staggerChildren: 0.04 }}
+              className="flex flex-wrap gap-3"
+            >
               {group.skills.map(({ name, icon: Icon }) => (
-                <span
+                <motion.span
                   key={name}
-                  className="flex items-center gap-2 px-3.5 py-2 bg-surface border border-border rounded-lg text-sm text-foreground hover:border-accent/50 hover:text-accent transition-colors"
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.85 },
+                    visible: { opacity: 1, scale: 1 },
+                  }}
+                  whileHover={{ scale: 1.08, y: -2 }}
+                  className="flex items-center gap-2 px-3.5 py-2 bg-surface border border-border rounded-lg text-sm text-foreground hover:border-accent/50 hover:text-accent transition-colors cursor-default"
                 >
                   <Icon size={16} />
                   {name}
-                </span>
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </div>
@@ -134,17 +138,28 @@ export default function SkillsSection() {
         <p className="text-sm text-muted mb-4">
           Deepening my focus toward data engineering and distributed systems.
         </p>
-        <div className="flex flex-wrap gap-3">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.04 }}
+          className="flex flex-wrap gap-3"
+        >
           {exploring.map(({ name, icon: Icon }) => (
-            <span
+            <motion.span
               key={name}
-              className="flex items-center gap-2 px-3.5 py-2 bg-background border border-dashed border-border rounded-lg text-sm text-muted"
+              variants={{
+                hidden: { opacity: 0, scale: 0.85 },
+                visible: { opacity: 1, scale: 1 },
+              }}
+              whileHover={{ scale: 1.08, y: -2 }}
+              className="flex items-center gap-2 px-3.5 py-2 bg-background border border-dashed border-border rounded-lg text-sm text-muted cursor-default"
             >
               <Icon size={16} />
               {name}
-            </span>
+            </motion.span>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   );

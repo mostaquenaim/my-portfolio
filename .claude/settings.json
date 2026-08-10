@@ -9,7 +9,17 @@
       "Bash(node -e ' *)",
       "Bash(rm -f \"src/app/components/FlipCard.jsx\")",
       "Bash(rm -f \"public/images/deanAward.jpg\" \"public/images/programming-contest.png\" \"public/images/data structure.png\" \"public/images/dexterity.jpg\" \"public/images/hackathon.jpg\" \"public/images/cisco.jpg\")",
-      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:3000 >/dev/null 2>&1 || curl -sf http://localhost:3001 >/dev/null 2>&1; do sleep 1; done')"
+      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:3000 >/dev/null 2>&1 || curl -sf http://localhost:3001 >/dev/null 2>&1; do sleep 1; done')",
+      "Bash(rm -f public/logos/devtools.png public/logos/digital-ocean.png public/logos/next-logo.png public/logos/postgres-logo.png public/logos/trello.png)",
+      "Bash(rm -f public/images/llm-website-mock.png)",
+      "Bash(npm run *)",
+      "Bash(echo \"EXIT CODE: $?\")",
+      "Bash(node \"C:\\\\Users\\\\USER\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\e--my-portfolio-my-portfolio-naim\\\\771a2ae3-19fb-47e5-8553-71657ca6b401\\\\scratchpad\\\\verify.js\")",
+      "Bash(npm root *)",
+      "Bash(npm ls *)",
+      "Read(//e//**)",
+      "Bash(node -e \"require\\('playwright'\\).chromium.launch\\(\\).then\\(b=>{console.log\\('OK'\\); return b.close\\(\\);}\\).catch\\(e=>console.log\\('ERR', e.message\\)\\)\")",
+      "Bash(node verify.js)"
     ]
   }
 }

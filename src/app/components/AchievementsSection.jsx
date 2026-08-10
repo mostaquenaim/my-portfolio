@@ -1,5 +1,9 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { FaAward, FaLaptopCode, FaSitemap, FaBriefcase, FaLightbulb, FaCertificate } from 'react-icons/fa';
+import SectionHeading from './ui/SectionHeading';
+import AnimatedCounter from './ui/AnimatedCounter';
 
 const achievements = [
   {
@@ -50,17 +54,7 @@ const competitiveStats = [
 export default function Achievements() {
   return (
     <div className="container mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="font-mono text-accent text-sm mb-2">06. Education</h2>
-        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
-          Education & Achievements
-        </h1>
-      </motion.div>
+      <SectionHeading eyebrow="06. Education" title="Education & Achievements" />
 
       {/* Education */}
       <motion.div
@@ -68,6 +62,7 @@ export default function Achievements() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
+        whileHover={{ y: -4 }}
         className="bg-surface border border-border rounded-xl p-6 md:p-8 mb-16"
       >
         <h3 className="text-lg font-semibold text-foreground mb-1">BSc in Software Engineering</h3>
@@ -98,11 +93,15 @@ export default function Achievements() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.06 }}
               viewport={{ once: true }}
+              whileHover={{ y: -6, scale: 1.02 }}
               className="bg-surface border border-border rounded-xl p-6 hover:border-accent/50 transition-colors"
             >
-              <div className="w-10 h-10 rounded-lg bg-background border border-border flex items-center justify-center text-accent mb-4">
+              <motion.div
+                whileHover={{ rotate: 8, scale: 1.1 }}
+                className="w-10 h-10 rounded-lg bg-background border border-border flex items-center justify-center text-accent mb-4"
+              >
                 <achievement.icon size={17} />
-              </div>
+              </motion.div>
               <h4 className="font-semibold text-foreground mb-1">{achievement.title}</h4>
               <p className="text-xs font-mono text-muted mb-3">{achievement.period}</p>
               <p className="text-sm text-muted leading-relaxed">{achievement.description}</p>
@@ -139,14 +138,19 @@ export default function Achievements() {
           </div>
 
           <div className="w-full md:w-1/2 grid grid-cols-2 gap-4">
-            {competitiveStats.map((stat) => (
-              <div
+            {competitiveStats.map((stat, index) => (
+              <motion.div
                 key={stat.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -3, borderColor: 'var(--accent)' }}
                 className="bg-background border border-border p-4 rounded-lg text-center"
               >
-                <p className="text-2xl font-bold text-accent mb-1">{stat.value}</p>
+                <AnimatedCounter value={stat.value} className="text-2xl font-bold text-accent mb-1" />
                 <p className="text-xs text-muted">{stat.label}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

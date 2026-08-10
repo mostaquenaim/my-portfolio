@@ -5,6 +5,26 @@ import Link from 'next/link';
 import TechSphere from './3d/TechSphere';
 import { motion } from 'framer-motion';
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
+const nameVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.04, delayChildren: 0.2 } },
+};
+
+const letterVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
+
 export default function HeroSection() {
   const name = 'Mostaque Ahammed Naim';
   const position = 'Senior Software Developer';
@@ -17,37 +37,74 @@ export default function HeroSection() {
         {/* Content */}
         <motion.div
           className="space-y-7 text-center lg:text-left"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <p className="font-mono text-sm text-accent">Hi, my name is</p>
+          <motion.p variants={itemVariants} className="font-mono text-sm text-accent">
+            Hi, my name is
+          </motion.p>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-            {name}
-          </h1>
+          <motion.h1
+            variants={nameVariants}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight flex flex-wrap justify-center lg:justify-start"
+            aria-label={name}
+          >
+            {name.split(' ').map((word, wi) => (
+              <span key={wi} className="inline-flex mr-[0.3em] whitespace-nowrap">
+                {word.split('').map((letter, li) => (
+                  <motion.span key={li} variants={letterVariants} className="inline-block">
+                    {letter}
+                  </motion.span>
+                ))}
+              </span>
+            ))}
+          </motion.h1>
 
-          <h2 className="text-xl md:text-2xl font-medium text-muted">{position}</h2>
+          <motion.h2 variants={itemVariants} className="text-xl md:text-2xl font-medium text-muted">
+            {position}
+          </motion.h2>
 
-          <p className="text-base md:text-lg text-muted max-w-lg mx-auto lg:mx-0">{aboutme}</p>
+          <motion.p
+            variants={itemVariants}
+            className="text-base md:text-lg text-muted max-w-lg mx-auto lg:mx-0"
+          >
+            {aboutme}
+          </motion.p>
 
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
-            <Link
-              href="#projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-background rounded-md font-semibold hover:bg-accent-strong transition-colors"
-            >
-              View Projects
-              <FaArrowRight size={14} />
-            </Link>
-            <Link
-              href="#contact"
-              className="px-6 py-3 border border-border text-foreground rounded-md font-semibold hover:border-accent hover:text-accent transition-colors"
-            >
-              Get In Touch
-            </Link>
-          </div>
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2"
+          >
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="#projects"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-background rounded-md font-semibold hover:bg-accent-strong transition-colors"
+              >
+                View Projects
+                <motion.span
+                  className="inline-flex"
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 1.4, repeat: Infinity, repeatDelay: 1, ease: 'easeInOut' }}
+                >
+                  <FaArrowRight size={14} />
+                </motion.span>
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="#contact"
+                className="px-6 py-3 border border-border text-foreground rounded-md font-semibold hover:border-accent hover:text-accent transition-colors block"
+              >
+                Get In Touch
+              </Link>
+            </motion.div>
+          </motion.div>
 
-          <div className="flex justify-center lg:justify-start gap-6 pt-2">
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center lg:justify-start gap-6 pt-2"
+          >
             <SocialLink href="https://github.com/mostaquenaim" icon={<FaGithub size={22} />} label="GitHub" />
             <SocialLink
               href="https://www.linkedin.com/in/mostaque-naim-b114571b1/"
@@ -59,7 +116,7 @@ export default function HeroSection() {
               icon={<FaCode size={22} />}
               label="Codeforces"
             />
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* 3D Tech Sphere */}
@@ -69,7 +126,13 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <TechSphere />
+          <motion.div
+            className="w-full h-full"
+            animate={{ y: [0, -16, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <TechSphere />
+          </motion.div>
         </motion.div>
       </div>
     </div>
@@ -77,13 +140,15 @@ export default function HeroSection() {
 }
 
 const SocialLink = ({ href, icon, label }) => (
-  <a
+  <motion.a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
     aria-label={label}
-    className="text-muted hover:text-accent hover:-translate-y-0.5 transition-all"
+    whileHover={{ scale: 1.2, y: -3 }}
+    whileTap={{ scale: 0.95 }}
+    className="text-muted hover:text-accent transition-colors"
   >
     {icon}
-  </a>
+  </motion.a>
 );

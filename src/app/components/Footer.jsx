@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaCode } from 'react-icons/fa';
 
 const socialLinks = [
@@ -9,7 +12,13 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="border-t border-border">
-      <div className="container mx-auto px-4 sm:px-6 py-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="container mx-auto px-4 sm:px-6 py-10"
+      >
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <p className="font-mono text-foreground font-semibold">
@@ -20,16 +29,18 @@ export default function Footer() {
 
           <div className="flex gap-5">
             {socialLinks.map(({ href, icon: Icon, label }) => (
-              <a
+              <motion.a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
+                whileHover={{ scale: 1.15, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 className="text-muted hover:text-accent transition-colors"
               >
                 <Icon size={20} />
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
@@ -37,7 +48,7 @@ export default function Footer() {
         <p className="text-center text-xs text-muted mt-8">
           &copy; {new Date().getFullYear()} Mostaque Naim. Built with Next.js & Tailwind CSS.
         </p>
-      </div>
+      </motion.div>
     </footer>
   );
 }

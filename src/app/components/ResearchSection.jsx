@@ -1,5 +1,8 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt, FaFilePdf } from 'react-icons/fa';
+import SectionHeading from './ui/SectionHeading';
 
 const publication = {
   title:
@@ -28,21 +31,14 @@ const researchProject = {
 export default function ResearchSection() {
   return (
     <div className="container mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="font-mono text-accent text-sm mb-2">04. Research</h2>
-        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-12">Research</h1>
-      </motion.div>
+      <SectionHeading eyebrow="04. Research" title="Research" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
+        whileHover={{ y: -4 }}
         className="bg-surface border border-border rounded-xl p-6 md:p-8 mb-8"
       >
         <p className="text-xs font-mono uppercase tracking-wider text-accent mb-3">
@@ -90,24 +86,28 @@ export default function ResearchSection() {
         </p>
 
         <div className="flex flex-wrap gap-4">
-          <a
+          <motion.a
             href={`https://doi.org/${publication.doi}`}
             target="_blank"
             rel="noopener noreferrer"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-background rounded-md text-sm font-semibold hover:bg-accent-strong transition-colors"
           >
             <FaExternalLinkAlt size={12} />
             View Publication
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="https://dl.acm.org/doi/pdf/10.1145/3723178.3723230"
             target="_blank"
             rel="noopener noreferrer"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-foreground rounded-md text-sm font-semibold hover:border-accent hover:text-accent transition-colors"
           >
             <FaFilePdf size={13} />
             Download PDF
-          </a>
+          </motion.a>
         </div>
       </motion.div>
 
@@ -116,6 +116,7 @@ export default function ResearchSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
         viewport={{ once: true }}
+        whileHover={{ y: -4 }}
         className="bg-surface border border-border rounded-xl p-6 md:p-8"
       >
         <p className="text-xs font-mono uppercase tracking-wider text-muted mb-3">

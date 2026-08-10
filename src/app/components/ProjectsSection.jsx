@@ -1,6 +1,9 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa';
+import SectionHeading from './ui/SectionHeading';
 
 const mainProjects = [
   {
@@ -62,7 +65,8 @@ function MainProjectCard({ project, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="group bg-surface border border-border rounded-xl overflow-hidden hover:border-accent/50 transition-colors flex flex-col"
+      whileHover={{ y: -6 }}
+      className="group bg-surface border border-border rounded-xl overflow-hidden hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-colors flex flex-col"
     >
       <div className="h-44 relative overflow-hidden border-b border-border">
         {project.image ? (
@@ -114,15 +118,7 @@ function MainProjectCard({ project, index }) {
 export default function ProjectsSection() {
   return (
     <div className="container mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="font-mono text-accent text-sm mb-2">03. Work</h2>
-        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-12">Projects</h1>
-      </motion.div>
+      <SectionHeading eyebrow="03. Work" title="Projects" />
 
       {/* Main Projects */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -149,6 +145,7 @@ export default function ProjectsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
+            whileHover={{ y: -4, borderColor: 'var(--accent)' }}
             className="bg-surface border border-border rounded-xl p-5"
           >
             <h4 className="font-medium text-foreground mb-1.5">{project.title}</h4>

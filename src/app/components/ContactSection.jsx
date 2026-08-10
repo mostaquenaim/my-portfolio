@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaEnvelope, FaLinkedin, FaGithub, FaCode, FaPaperPlane } from 'react-icons/fa';
+import SectionHeading from './ui/SectionHeading';
 
 const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
 
@@ -50,18 +52,21 @@ export default function ContactSection() {
   return (
     <div className="container mx-auto px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
-        <div className="mb-12">
-          <h2 className="font-mono text-accent text-sm mb-2">07. Contact</h2>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Get In Touch</h1>
-          <p className="text-muted max-w-xl">
-            Have a role, project, or just want to say hi? My inbox is open — I try to reply to
-            everyone within a day or two.
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="07. Contact"
+          title="Get In Touch"
+          description="Have a role, project, or just want to say hi? My inbox is open — I try to reply to everyone within a day or two."
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Direct contact */}
-          <div className="bg-surface border border-border rounded-xl p-8 flex flex-col justify-between">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="bg-surface border border-border rounded-xl p-8 flex flex-col justify-between"
+          >
             <div>
               <div className="flex items-start gap-4 mb-8">
                 <div className="mt-1 text-accent">
@@ -85,25 +90,33 @@ export default function ContactSection() {
               </h3>
               <div className="flex gap-4">
                 {socialLinks.map(({ href, icon: Icon, label }) => (
-                  <a
+                  <motion.a
                     key={label}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                     className="w-11 h-11 rounded-lg bg-background border border-border flex items-center justify-center text-muted hover:text-accent hover:border-accent/50 transition-colors"
                   >
                     <Icon size={18} />
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>
 
             <p className="text-sm text-muted mt-10">Based in Dhaka, Bangladesh</p>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="bg-surface border border-border rounded-xl p-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="bg-surface border border-border rounded-xl p-8"
+          >
             <h2 className="text-lg font-semibold text-foreground mb-6">Send Me a Message</h2>
 
             <form className="space-y-5" onSubmit={handleSubmit}>
@@ -146,27 +159,55 @@ export default function ContactSection() {
                 ></textarea>
               </div>
 
-              <button
+              <motion.button
                 type="submit"
                 disabled={status === 'submitting'}
+                whileHover={{ scale: status === 'submitting' ? 1 : 1.02 }}
+                whileTap={{ scale: status === 'submitting' ? 1 : 0.97 }}
                 className="w-full inline-flex items-center justify-center gap-2 bg-accent text-background font-semibold py-2.5 rounded-md hover:bg-accent-strong transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <FaPaperPlane size={13} />
+                <motion.span
+                  className="inline-flex"
+                  animate={status === 'submitting' ? { rotate: 360 } : { rotate: 0 }}
+                  transition={
+                    status === 'submitting'
+                      ? { duration: 0.8, repeat: Infinity, ease: 'linear' }
+                      : { duration: 0.2 }
+                  }
+                >
+                  <FaPaperPlane size={13} />
+                </motion.span>
                 {status === 'submitting' ? 'Sending...' : 'Send Message'}
-              </button>
+              </motion.button>
 
-              {status === 'success' && (
-                <p className="text-sm text-accent text-center">
-                  Thanks! Your message has been sent — I'll get back to you soon.
-                </p>
-              )}
-              {status === 'error' && (
-                <p className="text-sm text-red-400 text-center">
-                  Something went wrong. Please email me directly instead.
-                </p>
-              )}
+              <AnimatePresence mode="wait">
+                {status === 'success' && (
+                  <motion.p
+                    key="success"
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-sm text-accent text-center"
+                  >
+                    Thanks! Your message has been sent — I'll get back to you soon.
+                  </motion.p>
+                )}
+                {status === 'error' && (
+                  <motion.p
+                    key="error"
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-sm text-red-400 text-center"
+                  >
+                    Something went wrong. Please email me directly instead.
+                  </motion.p>
+                )}
+              </AnimatePresence>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
