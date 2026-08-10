@@ -1,80 +1,88 @@
 'use client';
 
-import { FaGithub, FaLinkedin, FaCode } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaCode, FaArrowRight } from 'react-icons/fa';
 import Link from 'next/link';
 import TechSphere from './3d/TechSphere';
 import { motion } from 'framer-motion';
 
 export default function HeroSection() {
-  const name = `Mostaque Ahammed Naim`
-  const position = `Junior Software Developer`
-  const aboutme = `I craft performant, scalable, and modern web solutions using cutting-edge technologies. Currently coding at Sammtech Ltd as a passionate Software Developer.`
-  return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="flex flex-col items-center justify-center gap-12">
-        {/* Left - 3D Sphere */}
-        <motion.div 
-          className="w-full h-[300px] lg:h-[500px] flex justify-center items-center bg-black"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <TechSphere />
-        </motion.div>
+  const name = 'Mostaque Ahammed Naim';
+  const position = 'Senior Software Developer';
+  const aboutme =
+    'I build full-stack web applications and data-driven systems — currently a Senior Software Developer at Sammtech Ltd, deepening my focus on data engineering and distributed systems.';
 
-        {/* Right - Hero Content */}
-        <motion.div 
-          className="w-full space-y-8 text-center lg:text-left"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2 }}
+  return (
+    <div className="container mx-auto px-4 sm:px-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        {/* Content */}
+        <motion.div
+          className="space-y-7 text-center lg:text-left"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent leading-tight">
+          <p className="font-mono text-sm text-accent">Hi, my name is</p>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
             {name}
           </h1>
 
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
-            {position}
-          </h2>
+          <h2 className="text-xl md:text-2xl font-medium text-muted">{position}</h2>
 
-          <p className="text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
-            {aboutme}
-          </p>
+          <p className="text-base md:text-lg text-muted max-w-lg mx-auto lg:mx-0">{aboutme}</p>
 
-          {/* Buttons */}
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-            <Link 
-              href="#about" 
-              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-semibold hover:scale-105 shadow-lg transition-all"
-            >
-              Learn More
-            </Link>
-            <Link 
-              href="#projects" 
-              className="px-6 py-3 border-2 border-blue-600 text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-all"
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+            <Link
+              href="#projects"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-background rounded-md font-semibold hover:bg-accent-strong transition-colors"
             >
               View Projects
+              <FaArrowRight size={14} />
+            </Link>
+            <Link
+              href="#contact"
+              className="px-6 py-3 border border-border text-foreground rounded-md font-semibold hover:border-accent hover:text-accent transition-colors"
+            >
+              Get In Touch
             </Link>
           </div>
 
-          {/* Social Icons */}
-          <div className="flex justify-center lg:justify-start gap-6 pt-6">
-            <SocialLink href="https://github.com/mostaquenaim" icon={<FaGithub size={26} />} />
-            <SocialLink href="https://www.linkedin.com/in/mostaque-naim-b114571b1/" icon={<FaLinkedin size={26} />} />
-            <SocialLink href="https://codeforces.com/profile/MostaqueNaimAIUB" icon={<FaCode size={26} />} />
+          <div className="flex justify-center lg:justify-start gap-6 pt-2">
+            <SocialLink href="https://github.com/mostaquenaim" icon={<FaGithub size={22} />} label="GitHub" />
+            <SocialLink
+              href="https://www.linkedin.com/in/mostaque-naim-b114571b1/"
+              icon={<FaLinkedin size={22} />}
+              label="LinkedIn"
+            />
+            <SocialLink
+              href="https://codeforces.com/profile/n4im"
+              icon={<FaCode size={22} />}
+              label="Codeforces"
+            />
           </div>
+        </motion.div>
+
+        {/* 3D Tech Sphere */}
+        <motion.div
+          className="w-full h-[280px] lg:h-[480px]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          <TechSphere />
         </motion.div>
       </div>
     </div>
   );
 }
 
-const SocialLink = ({ href, icon }) => (
-  <a 
-    href={href} 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="text-gray-700 hover:text-blue-600 transition-transform hover:scale-110"
+const SocialLink = ({ href, icon, label }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={label}
+    className="text-muted hover:text-accent hover:-translate-y-0.5 transition-all"
   >
     {icon}
   </a>

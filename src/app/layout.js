@@ -1,7 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +12,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Mostaque Naim",
-  description: "Naim's Portfolio",
+  title: "Mostaque Naim — Frontend Developer",
+  description:
+    "Portfolio of Mostaque Ahammed Naim, a frontend-focused software developer building fast, accessible web applications with React and Next.js.",
+};
+
+export const viewport = {
+  themeColor: "#05070a",
 };
 
 export default function RootLayout({ children }) {

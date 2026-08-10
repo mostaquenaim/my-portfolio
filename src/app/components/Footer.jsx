@@ -1,48 +1,42 @@
 import { FaGithub, FaLinkedin, FaCode } from 'react-icons/fa';
 
+const socialLinks = [
+  { href: 'https://github.com/mostaquenaim', icon: FaGithub, label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/mostaque-naim-b114571b1/', icon: FaLinkedin, label: 'LinkedIn' },
+  { href: 'https://codeforces.com/profile/n4im', icon: FaCode, label: 'Codeforces' },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Mostaque Naim
-            </h2>
-            <p className="mt-2 text-gray-400">Full Stack Software Engineer</p>
+    <footer className="border-t border-border">
+      <div className="container mx-auto px-4 sm:px-6 py-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-center md:text-left">
+            <p className="font-mono text-foreground font-semibold">
+              mostaque<span className="text-accent">.</span>naim
+            </p>
+            <p className="text-sm text-muted mt-1">Senior Software Developer</p>
           </div>
 
-          <div className="flex space-x-6">
-            <a
-              href="https://github.com/mostaquenaim"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <FaGithub size={24} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/mostaque-naim-b114571b1/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <FaLinkedin size={24} />
-            </a>
-            <a
-              href="https://codeforces.com/profile/MostaqueNaimAIUB"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <FaCode size={24} />
-            </a>
+          <div className="flex gap-5">
+            {socialLinks.map(({ href, icon: Icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="text-muted hover:text-accent transition-colors"
+              >
+                <Icon size={20} />
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} Mostaque Naim. All rights reserved.</p>
-        </div>
+        <p className="text-center text-xs text-muted mt-8">
+          &copy; {new Date().getFullYear()} Mostaque Naim. Built with Next.js & Tailwind CSS.
+        </p>
       </div>
     </footer>
   );

@@ -14,7 +14,7 @@ const FlipCard = ({ achievement }) => {
     >
       <div className="relative w-full h-full [perspective:1000px]">
         <div
-          className={`relative rounded-xl shadow-lg shadow-black w-full h-full transition-transform duration-700 transform ${isFlipped ? 'rotate-y-180' : ''
+          className={`relative rounded-xl border border-border w-full h-full transition-transform duration-700 transform ${isFlipped ? 'rotate-y-180' : ''
             }`}
           style={{
             transformStyle: 'preserve-3d',
@@ -29,23 +29,24 @@ const FlipCard = ({ achievement }) => {
               src={achievement.image}
               alt={achievement.title}
               fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
               className="object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
           </div>
 
           {/* Back Side */}
           <div
-            className={`absolute w-full h-full rounded-xl p-6 flex flex-col items-center justify-center transform rotate-y-180 text-white bg-gradient-to-b ${achievement.bgGradient || ' from-gray-800 to-gray-900'
-              }`}
+            className={`absolute w-full h-full rounded-xl p-6 flex flex-col items-center justify-center text-center transform rotate-y-180 bg-surface`}
             style={{ backfaceVisibility: 'hidden' }}
           >
-            <h3 className="text-2xl font-bold mb-2 text-center drop-shadow-sm drop-shadow-black">
+            <h3 className="text-lg font-semibold text-foreground mb-2">
               {achievement.title}
             </h3>
-            <p className="text-sm font-medium mb-3 opacity-90">
+            <p className="text-xs font-mono text-accent mb-3">
               {achievement.period}
             </p>
-            <p className="text-sm text-center opacity-80 leading-relaxed">
+            <p className="text-sm text-muted leading-relaxed">
               {achievement.description}
             </p>
           </div>
