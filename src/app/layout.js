@@ -15,11 +15,11 @@ export const metadata = {
   metadataBase: new URL("https://mostaquenaim.com"),
   title: "Mostaque Naim — Software Developer",
   description:
-    "Portfolio of Mostaque Ahammed Naim, a backend-focused software developer building fast, accessible web applications with React and Next.js.",
+    "Portfolio of Mostaque Ahammed Naim, a backend-focused software developer building scalable APIs, databases, and server-side systems, with full-stack experience in React and Next.js.",
   openGraph: {
-    title: "Mostaque Naim — Software Developer",
+    title: "Mostaque Naim — Backend Developer",
     description:
-      "Portfolio of Mostaque Ahammed Naim, a backend-focused software developer building fast, accessible web applications with React and Next.js.",
+      "Portfolio of Mostaque Ahammed Naim, a backend-focused software developer building scalable APIs, databases, and server-side systems, with full-stack experience in React and Next.js.",
     url: "https://mostaquenaim.com",
     siteName: "Mostaque Naim",
     images: [
@@ -33,9 +33,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Mostaque Naim — Software Developer",
+    title: "Mostaque Naim — Backend Developer",
     description:
-      "Portfolio of Mostaque Ahammed Naim, a backend-focused software developer building fast, accessible web applications with React and Next.js.",
+      "Portfolio of Mostaque Ahammed Naim, a backend-focused software developer building scalable APIs, databases, and server-side systems, with full-stack experience in React and Next.js.",
     images: ["https://avatars.githubusercontent.com/u/75275684?v=4"],
   },
 };
