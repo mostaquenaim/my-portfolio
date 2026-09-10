@@ -24,7 +24,7 @@ export default function Footer() {
             <p className="font-mono text-foreground font-semibold">
               mostaque<span className="text-accent">.</span>naim
             </p>
-            <p className="text-sm text-muted mt-1">Senior Software Developer</p>
+            <p className="text-sm text-muted mt-1">Software Developer</p>
           </div>
 
           <div className="flex gap-5">

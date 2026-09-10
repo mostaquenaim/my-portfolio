@@ -27,7 +27,7 @@ const letterVariants = {
 
 export default function HeroSection() {
   const name = 'Mostaque Ahammed Naim';
-  const position = 'Senior Software Developer';
+  const position = 'Software Developer';
   const aboutme =
     'I build full-stack web applications and data-driven systems — currently a Senior Software Developer at Sammtech Ltd, deepening my focus on data engineering and distributed systems.';
 
