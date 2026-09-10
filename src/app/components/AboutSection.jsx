@@ -54,8 +54,8 @@ export default function AboutSection() {
             <p>
               I'm a software developer from Bangladesh with professional experience building
               full-stack web applications, backend systems, and data-driven solutions. I hold a
-              BSc in Software Engineering from AIUB with a 3.94/4.00 CGPA and Magna Cum Laude
-              distinction.
+              BSc in Computer Science and Engineering, majoring in Software Engineering, from
+              AIUB with a 3.94/4.00 CGPA and Magna Cum Laude distinction.
             </p>
             <p>
               My current interests are moving deeper into data engineering, distributed
@@ -92,7 +92,7 @@ export default function AboutSection() {
           </div>
 
           <motion.a
-            href="/cv/mostaque-naim-cv.pdf"
+            href="/cv/Mostaque_Ahammed_Naim_Resume.pdf"
             download
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
