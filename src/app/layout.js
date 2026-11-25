@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   metadataBase: new URL("https://mostaquenaim.com"),
-  title: "Mostaque Naim — Software Developer",
+  title: "Mostaque Naim — Full-Stack Software Developer",
   description:
-    "Portfolio of Mostaque Ahammed Naim, a backend-focused software developer building scalable APIs, databases, and server-side systems, with full-stack experience in React and Next.js.",
+    "Portfolio of Mostaque Ahammed Naim, a full-stack developer with about 3 years building production systems on Next.js, NestJS, TypeScript and PostgreSQL — payments, couriers, real-time orders and infrastructure. Open to remote.",
   openGraph: {
-    title: "Mostaque Naim — Backend Developer",
+    title: "Mostaque Naim — Full-Stack Software Developer",
     description:
-      "Portfolio of Mostaque Ahammed Naim, a backend-focused software developer building scalable APIs, databases, and server-side systems, with full-stack experience in React and Next.js.",
+      "Portfolio of Mostaque Ahammed Naim, a full-stack developer with about 3 years building production systems on Next.js, NestJS, TypeScript and PostgreSQL — payments, couriers, real-time orders and infrastructure. Open to remote.",
     url: "https://mostaquenaim.com",
     siteName: "Mostaque Naim",
     images: [
@@ -33,9 +33,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Mostaque Naim — Backend Developer",
+    title: "Mostaque Naim — Full-Stack Software Developer",
     description:
-      "Portfolio of Mostaque Ahammed Naim, a backend-focused software developer building scalable APIs, databases, and server-side systems, with full-stack experience in React and Next.js.",
+      "Portfolio of Mostaque Ahammed Naim, a full-stack developer with about 3 years building production systems on Next.js, NestJS, TypeScript and PostgreSQL — payments, couriers, real-time orders and infrastructure. Open to remote.",
     images: ["https://avatars.githubusercontent.com/u/75275684?v=4"],
   },
 };

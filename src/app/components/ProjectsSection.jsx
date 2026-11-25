@@ -7,18 +7,31 @@ import SectionHeading from './ui/SectionHeading';
 
 const mainProjects = [
   {
+    title: 'Ondorkotha',
+    period: 'Dec 2025 — Aug 2026',
+    description:
+      'Furniture and home decor e-commerce platform. Production NestJS backend with catalog, inventory, checkout and real-time order updates; SSLCOMMERZ payments and Pathao courier webhooks; JWT + Google OAuth with RBAC; stock reservation, refunds and fraud detection (stopped an SMS-pumping attack); Puppeteer PDFs and TSPL thermal labels for barcode-tracked, piece-level inventory; a multi-courier layer (Pathao, RedX, Steadfast, Paperfly); and server-side Pixel/GTM tracking with SHA-256 hashed PII.',
+    tags: ['NestJS', 'Next.js', 'PostgreSQL', 'Prisma', 'Redis', 'Bull', 'Socket.IO', 'Puppeteer'],
+    links: [
+      { label: 'Live Store', href: 'https://furniture-sakigai.mostaquenaim.com/' },
+      { label: 'Admin', href: 'https://furniture-sakigai.mostaquenaim.com/admin' },
+      { label: 'Backend', href: 'https://github.com/mostaquenaim/furniture-website' },
+      { label: 'Frontend', href: 'https://github.com/mostaquenaim/furniture-frontend' },
+    ],
+  },
+  {
+    title: 'Investment Platform',
+    description:
+      'Client investment platform with investor KYC, bKash installment payments and a monthly profit-calculation engine, split across two servers by data sensitivity.',
+    tags: ['Next.js', 'NestJS', 'Prisma', 'Turborepo', 'bKash'],
+  },
+  {
     title: 'TahamsBD',
     description:
       'Full-featured e-commerce platform for a clothing brand — has generated over BDT 250,000 in sales, including courier/order data analysis and business analytics.',
     tags: ['Next.js', 'React', 'NestJS', 'PostgreSQL'],
     link: 'https://tahamsbd.com',
     image: '/images/tahams-website-mock.png',
-  },
-  {
-    title: 'Ondorkotha',
-    description:
-      'Furniture e-commerce platform with series/category catalog management, order handling and a fully custom admin backend.',
-    tags: ['Next.js', 'TypeScript', 'NestJS', 'Prisma', 'PostgreSQL', 'Docker'],
   },
   {
     title: 'Sammtech Works',
@@ -74,7 +87,7 @@ function MainProjectCard({ project, index }) {
             src={project.image}
             alt={project.title}
             fill
-            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
         ) : (
@@ -84,9 +97,12 @@ function MainProjectCard({ project, index }) {
         )}
       </div>
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+        <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
           {project.title}
         </h3>
+        {project.period && (
+          <p className="text-xs font-mono text-muted mb-2">{project.period}</p>
+        )}
         <p className="text-sm text-muted mb-4">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag) => (
@@ -99,7 +115,22 @@ function MainProjectCard({ project, index }) {
           ))}
         </div>
         <div className="mt-auto">
-          {project.link ? (
+          {project.links ? (
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
+              {project.links.map(({ label, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent text-sm font-medium inline-flex items-center gap-1.5 hover:text-accent-strong transition-colors"
+                >
+                  {label}
+                  <FaArrowRight size={11} />
+                </a>
+              ))}
+            </div>
+          ) : project.link ? (
             <span className="text-accent text-sm font-medium inline-flex items-center gap-1.5">
               View Project
               <FaArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
@@ -121,7 +152,7 @@ export default function ProjectsSection() {
       <SectionHeading eyebrow="03. Work" title="Projects" />
 
       {/* Main Projects */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         {mainProjects.map((project, index) => (
           <MainProjectCard key={project.title} project={project} index={index} />
         ))}

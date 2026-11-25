@@ -24,20 +24,27 @@ import {
   SiVercel,
   SiApachespark,
   SiApachehadoop,
+  SiJavascript,
+  SiCplusplus,
+  SiRedis,
+  SiSocketdotio,
+  SiPuppeteer,
+  SiJsonwebtokens,
+  SiCpanel,
+  SiTrello,
+  SiSlack,
+  SiGithubcopilot,
 } from 'react-icons/si';
 import { VscServerProcess } from 'react-icons/vsc';
-import { TbCloudCog, TbGitPullRequest } from 'react-icons/tb';
+import { TbCloudCog, TbGitPullRequest, TbStack2, TbAccessible, TbGauge, TbRobot, TbUsersGroup } from 'react-icons/tb';
 
 const skillGroups = [
   {
-    label: 'Frontend',
+    label: 'Languages',
     skills: [
-      { name: 'React', icon: SiReact },
-      { name: 'Next.js', icon: SiNextdotjs },
       { name: 'TypeScript', icon: SiTypescript },
-      { name: 'Tailwind CSS', icon: SiTailwindcss },
-      { name: 'Framer Motion', icon: SiFramer },
-      { name: 'Three.js', icon: SiThreedotjs },
+      { name: 'JavaScript', icon: SiJavascript },
+      { name: 'C++', icon: SiCplusplus },
     ],
   },
   {
@@ -46,28 +53,56 @@ const skillGroups = [
       { name: 'NestJS', icon: SiNestjs },
       { name: 'Express.js', icon: SiExpress },
       { name: 'Node.js', icon: SiNodedotjs },
-      { name: 'Prisma', icon: SiPrisma },
-      { name: 'TypeORM', icon: SiTypeorm },
       { name: 'REST APIs', icon: TbGitPullRequest },
+      { name: 'JWT Auth', icon: SiJsonwebtokens },
+      { name: 'WebSockets / Socket.IO', icon: SiSocketdotio },
+      { name: 'Redis', icon: SiRedis },
+      { name: 'Bull Queues', icon: TbStack2 },
+      { name: 'Puppeteer', icon: SiPuppeteer },
+    ],
+  },
+  {
+    label: 'Frontend',
+    skills: [
+      { name: 'Next.js', icon: SiNextdotjs },
+      { name: 'React', icon: SiReact },
+      { name: 'Tailwind CSS', icon: SiTailwindcss },
+      { name: 'Framer Motion', icon: SiFramer },
+      { name: 'Three.js', icon: SiThreedotjs },
+      { name: 'Core Web Vitals', icon: TbGauge },
+      { name: 'Accessibility', icon: TbAccessible },
     ],
   },
   {
     label: 'Databases',
     skills: [
       { name: 'PostgreSQL', icon: SiPostgresql },
-      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'Prisma', icon: SiPrisma },
+      { name: 'TypeORM', icon: SiTypeorm },
+      { name: 'MongoDB / Mongoose', icon: SiMongodb },
     ],
   },
   {
     label: 'DevOps & Infrastructure',
     skills: [
-      { name: 'Docker', icon: SiDocker },
-      { name: 'Git', icon: SiGit },
-      { name: 'GitHub Actions / CI-CD', icon: SiGithub },
-      { name: 'Nginx', icon: SiNginx },
+      { name: 'Docker / Compose', icon: SiDocker },
       { name: 'PM2', icon: VscServerProcess },
+      { name: 'Nginx', icon: SiNginx },
       { name: 'DigitalOcean', icon: SiDigitalocean },
+      { name: 'cPanel', icon: SiCpanel },
+      { name: 'Git', icon: SiGit },
+      { name: 'GitHub / CI-CD', icon: SiGithub },
       { name: 'Vercel', icon: SiVercel },
+    ],
+  },
+  {
+    label: 'Working Style',
+    skills: [
+      { name: 'Agile (Scrum)', icon: TbUsersGroup },
+      { name: 'Slack', icon: SiSlack },
+      { name: 'Trello', icon: SiTrello },
+      { name: 'GitHub Copilot', icon: SiGithubcopilot },
+      { name: 'Cursor', icon: TbRobot },
     ],
   },
 ];

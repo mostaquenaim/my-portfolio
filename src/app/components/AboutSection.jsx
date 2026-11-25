@@ -5,11 +5,20 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import SectionHeading from './ui/SectionHeading';
 
+const RESUME_URL =
+  'https://drive.google.com/drive/folders/18ANawCWd0tKtwUYtc6hN-DSnl2UzHoOt?usp=sharing';
+
 const interests = [
-  'Logic & Problem Solving',
-  'Data Systems',
-  'Software Engineering',
-  'Machine Learning',
+  'Payments & Integrations',
+  'Backend Architecture',
+  'Production Infrastructure',
+  'Problem Solving',
+];
+
+const languages = [
+  'Bangla (Native)',
+  'English (Advanced · IELTS 7.5)',
+  'Hindi',
 ];
 
 export default function AboutSection() {
@@ -52,15 +61,20 @@ export default function AboutSection() {
         >
           <div className="space-y-4 text-lg text-muted leading-relaxed">
             <p>
-              I'm a software developer from Bangladesh with professional experience building
-              full-stack web applications, backend systems, and data-driven solutions. I hold a
-              BSc in Computer Science and Engineering, majoring in Software Engineering, from
-              AIUB with a 3.94/4.00 CGPA and Magna Cum Laude distinction.
+              I'm a full-stack developer from Dhaka, Bangladesh with about 3 years of building
+              and running production systems for paying clients, mainly on Next.js, NestJS,
+              TypeScript and PostgreSQL. I've shipped payment-heavy platforms with bKash
+              installments, SSLCOMMERZ, courier webhooks and investor KYC.
             </p>
             <p>
-              My current interests are moving deeper into data engineering, distributed
-              systems, cloud computing, and large-scale data processing. I enjoy solving complex
-              problems at the intersection of software, data, and real-world business needs.
+              I deploy and operate my own releases (Docker, Nginx, DigitalOcean), and at
+              SammTech I grew from intern to Senior Software Developer, leading a team, running
+              code reviews and handling intern hiring.
+            </p>
+            <p>
+              I hold a BSc in Computer Science and Engineering (Major: Software Engineering) from
+              AIUB with a 3.94/4.00 CGPA, Magna Cum Laude. I'm open to remote roles and available
+              immediately.
             </p>
           </div>
 
@@ -91,15 +105,32 @@ export default function AboutSection() {
             </motion.div>
           </div>
 
+          <div>
+            <p className="text-xs font-mono uppercase tracking-wider text-muted mb-3">
+              Languages
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {languages.map((lang) => (
+                <span
+                  key={lang}
+                  className="px-3 py-1.5 bg-surface border border-border rounded-full text-sm text-foreground"
+                >
+                  {lang}
+                </span>
+              ))}
+            </div>
+          </div>
+
           <motion.a
-            href="/cv/Mostaque_Ahammed_Naim_Resume.pdf"
-            download
+            href={RESUME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-background rounded-md font-semibold hover:bg-accent-strong transition-colors"
           >
             <FaDownload size={14} />
-            Download CV
+            View Resume
           </motion.a>
         </motion.div>
       </div>

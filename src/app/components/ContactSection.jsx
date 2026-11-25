@@ -9,7 +9,7 @@ const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
 
 const socialLinks = [
   {
-    href: 'https://www.linkedin.com/in/mostaque-naim-b114571b1/',
+    href: 'https://www.linkedin.com/in/mostaquenaim/',
     icon: FaLinkedin,
     label: 'LinkedIn',
   },
@@ -106,7 +106,9 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <p className="text-sm text-muted mt-10">Based in Dhaka, Bangladesh</p>
+            <p className="text-sm text-muted mt-10">
+              Based in Dhaka, Bangladesh &middot; Open to remote &middot; Available immediately
+            </p>
           </motion.div>
 
           {/* Contact Form */}

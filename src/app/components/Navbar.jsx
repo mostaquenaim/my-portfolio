@@ -17,7 +17,7 @@ const navLinks = [
 
 const socialLinks = [
   { href: 'https://github.com/mostaquenaim', icon: FaGithub, label: 'GitHub' },
-  { href: 'https://www.linkedin.com/in/mostaque-naim-b114571b1/', icon: FaLinkedin, label: 'LinkedIn' },
+  { href: 'https://www.linkedin.com/in/mostaquenaim/', icon: FaLinkedin, label: 'LinkedIn' },
   { href: 'https://codeforces.com/profile/n4im', icon: FaCode, label: 'Codeforces' },
 ]
 

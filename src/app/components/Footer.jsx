@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaCode } from 'react-icons/fa';
 
 const socialLinks = [
   { href: 'https://github.com/mostaquenaim', icon: FaGithub, label: 'GitHub' },
-  { href: 'https://www.linkedin.com/in/mostaque-naim-b114571b1/', icon: FaLinkedin, label: 'LinkedIn' },
+  { href: 'https://www.linkedin.com/in/mostaquenaim/', icon: FaLinkedin, label: 'LinkedIn' },
   { href: 'https://codeforces.com/profile/n4im', icon: FaCode, label: 'Codeforces' },
 ];
 
@@ -24,7 +24,7 @@ export default function Footer() {
             <p className="font-mono text-foreground font-semibold">
               mostaque<span className="text-accent">.</span>naim
             </p>
-            <p className="text-sm text-muted mt-1">Software Developer</p>
+            <p className="text-sm text-muted mt-1">Full-Stack Software Developer</p>
           </div>
 
           <div className="flex gap-5">

@@ -27,9 +27,9 @@ const letterVariants = {
 
 export default function HeroSection() {
   const name = 'Mostaque Ahammed Naim';
-  const position = 'Software Developer';
+  const position = 'Full-Stack Software Developer';
   const aboutme =
-    'I build full-stack web applications and data-driven systems — currently a Senior Software Developer at Sammtech Ltd, deepening my focus on data engineering and distributed systems.';
+    'About 3 years building and running production systems for paying clients on Next.js, NestJS, TypeScript and PostgreSQL — payments, couriers, real-time orders and the infrastructure behind them. Open to remote, available immediately.';
 
   return (
     <div className="container mx-auto px-4 sm:px-6">
@@ -107,7 +107,7 @@ export default function HeroSection() {
           >
             <SocialLink href="https://github.com/mostaquenaim" icon={<FaGithub size={22} />} label="GitHub" />
             <SocialLink
-              href="https://www.linkedin.com/in/mostaque-naim-b114571b1/"
+              href="https://www.linkedin.com/in/mostaquenaim/"
               icon={<FaLinkedin size={22} />}
               label="LinkedIn"
             />

@@ -6,28 +6,36 @@ import SectionHeading from './ui/SectionHeading';
 const experience = [
   {
     role: 'Senior Software Developer',
-    company: 'Sammtech Ltd, Dhaka',
-    period: 'Jan 2026 — Present',
+    company: 'SammTech Ltd, Dhaka',
+    period: 'Jan 2026 — Oct 2026',
     points: [
-      'Lead technical delivery across full-stack projects, working primarily in Next.js/React/TypeScript, NestJS, PostgreSQL and MongoDB.',
-      'Mentor and guide a development team of around 6 engineers, reviewing code and helping junior developers grow.',
-      'Own infrastructure and deployment across Docker, Nginx, PM2, DigitalOcean and CI/CD pipelines.',
+      'Led the full development lifecycle of multiple production client projects and managed a team of developers.',
+      'Architected a client investment platform (Next.js, NestJS, Prisma, Turborepo) with investor KYC, bKash installment payments and a monthly profit-calculation engine, split across two servers by data sensitivity.',
+      'Audited a piece-level inventory system and found a critical double-count bug in courier webhook return handling.',
+      'Ran intern hiring: screened 500+ applicants, led code reviews, hired two interns and mentored them.',
     ],
   },
   {
     role: 'Software Developer',
-    company: 'Sammtech Ltd, Dhaka',
-    period: 'Jan 2024 — Jan 2026',
+    company: 'SammTech Ltd, Dhaka',
+    period: 'Jan 2025 — Jan 2026',
     points: [
-      'Progressed from Junior Software Developer to Software Developer, taking ownership of full-stack features end to end.',
-      'Built and maintain TahamsBD, an e-commerce platform that has generated over BDT 250,000 in sales, including courier/order data analysis and business analytics.',
-      'Built Ondorkotha, a full-stack furniture e-commerce platform on Next.js, NestJS, Prisma and PostgreSQL.',
+      'Delivered production e-commerce platforms on NestJS, PostgreSQL and Next.js: inventory, orders, admin and a custom product configurator.',
+      'Deployed and operated production on VPS/DigitalOcean (Docker Compose, PM2, Nginx); resolved a production Prisma schema drift.',
+    ],
+  },
+  {
+    role: 'Junior Software Developer',
+    company: 'SammTech Ltd, Dhaka',
+    period: 'Jan 2024 — Jan 2025',
+    points: [
+      'Took ownership of full-stack features end to end across client e-commerce and business projects.',
     ],
   },
   {
     role: 'Full Stack Developer Intern',
-    company: 'Sammtech Ltd, Dhaka',
-    period: 'Sept 2023 — Jan 2024',
+    company: 'SammTech Ltd, Dhaka',
+    period: 'Sep 2023 — Jan 2024',
     points: [
       "Ramped up on the company's full-stack stack and shipped early feature work across multiple client projects.",
     ],
