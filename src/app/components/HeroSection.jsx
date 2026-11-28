@@ -4,6 +4,8 @@ import { FaGithub, FaLinkedin, FaCode, FaArrowRight } from 'react-icons/fa';
 import Link from 'next/link';
 import TechSphere from './3d/TechSphere';
 import { motion } from 'framer-motion';
+import Magnetic from './ui/Magnetic';
+import ScrambleText from './ui/ScrambleText';
 
 const containerVariants = {
   hidden: {},
@@ -62,7 +64,7 @@ export default function HeroSection() {
           </motion.h1>
 
           <motion.h2 variants={itemVariants} className="text-xl md:text-2xl font-medium text-muted">
-            {position}
+            <ScrambleText text={position} delay={900} />
           </motion.h2>
 
           <motion.p
@@ -76,6 +78,7 @@ export default function HeroSection() {
             variants={itemVariants}
             className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2"
           >
+            <Magnetic>
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
               <Link
                 href="#projects"
@@ -91,6 +94,8 @@ export default function HeroSection() {
                 </motion.span>
               </Link>
             </motion.div>
+            </Magnetic>
+            <Magnetic>
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
               <Link
                 href="#contact"
@@ -99,6 +104,7 @@ export default function HeroSection() {
                 Get In Touch
               </Link>
             </motion.div>
+            </Magnetic>
           </motion.div>
 
           <motion.div
@@ -140,6 +146,7 @@ export default function HeroSection() {
 }
 
 const SocialLink = ({ href, icon, label }) => (
+  <Magnetic strength={0.5}>
   <motion.a
     href={href}
     target="_blank"
@@ -151,4 +158,5 @@ const SocialLink = ({ href, icon, label }) => (
   >
     {icon}
   </motion.a>
+  </Magnetic>
 );

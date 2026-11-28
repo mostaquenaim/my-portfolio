@@ -10,10 +10,12 @@ import AchievementsSection from './components/AchievementsSection';
 import ContactSection from './components/ContactSection';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import CursorGlow from './components/ui/CursorGlow';
 
 export default function Home() {
   return (
-    <div className="bg-background">
+    <div className="bg-background relative isolate">
+      <CursorGlow />
       <Navbar />
       <main>
         {/* Hero Section */}

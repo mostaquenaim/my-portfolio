@@ -4,6 +4,7 @@ import { FaDownload } from 'react-icons/fa';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import SectionHeading from './ui/SectionHeading';
+import Magnetic from './ui/Magnetic';
 
 const RESUME_URL =
   'https://drive.google.com/drive/folders/18ANawCWd0tKtwUYtc6hN-DSnl2UzHoOt?usp=sharing';
@@ -121,6 +122,7 @@ export default function AboutSection() {
             </div>
           </div>
 
+          <Magnetic>
           <motion.a
             href={RESUME_URL}
             target="_blank"
@@ -132,6 +134,7 @@ export default function AboutSection() {
             <FaDownload size={14} />
             View Resume
           </motion.a>
+          </Magnetic>
         </motion.div>
       </div>
     </div>

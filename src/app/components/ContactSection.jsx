@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaEnvelope, FaLinkedin, FaGithub, FaCode, FaPaperPlane } from 'react-icons/fa';
 import SectionHeading from './ui/SectionHeading';
+import Magnetic from './ui/Magnetic';
 
 const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
 
@@ -90,8 +91,8 @@ export default function ContactSection() {
               </h3>
               <div className="flex gap-4">
                 {socialLinks.map(({ href, icon: Icon, label }) => (
+                  <Magnetic key={label} strength={0.4}>
                   <motion.a
-                    key={label}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -102,6 +103,7 @@ export default function ContactSection() {
                   >
                     <Icon size={18} />
                   </motion.a>
+                  </Magnetic>
                 ))}
               </div>
             </div>

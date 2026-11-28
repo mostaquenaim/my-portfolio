@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaCode, FaBars, FaTimes } from 'react-icons/fa'
+import Magnetic from './ui/Magnetic'
 
 const navLinks = [
   { name: 'About', path: '#about' },
@@ -118,14 +119,16 @@ const Navbar = () => {
                 </motion.a>
               ))}
             </div>
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="#contact"
-                className="px-4 py-2 border border-accent/40 text-accent text-sm font-medium rounded-md hover:bg-accent/10 transition-colors"
-              >
-                Let's talk
-              </Link>
-            </motion.div>
+            <Magnetic>
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+                <Link
+                  href="#contact"
+                  className="px-4 py-2 border border-accent/40 text-accent text-sm font-medium rounded-md hover:bg-accent/10 transition-colors"
+                >
+                  Let's talk
+                </Link>
+              </motion.div>
+            </Magnetic>
           </div>
 
           {/* Mobile Menu Button */}
