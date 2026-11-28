@@ -20,10 +20,15 @@ const mainProjects = [
     ],
   },
   {
-    title: 'Investment Platform',
+    title: 'Influencer Portfolio Sites',
     description:
-      'Client investment platform with investor KYC, bKash installment payments and a monthly profit-calculation engine, split across two servers by data sensitivity.',
-    tags: ['Next.js', 'NestJS', 'Prisma', 'Turborepo', 'bKash'],
+      'A set of conversion-focused portfolio sites for Bangladeshi content creators, each with its own visual identity. Fashion & beauty (AYRA): audience stats, a media kit with follower growth and demographics, priced collaboration packages and a lookbook. Food & travel (Bite & Roam): a filterable YouTube/Instagram/TikTok video grid, campaign case studies and a multi-step collaboration builder with a live message preview. Lifestyle (dinlipi): a "day in the life" timeline that places brands into moments, receipt-style collab history and brand kits. Every brief form generates a prefilled WhatsApp message, and the sites run on a shared multi-site demo setup with an editor.',
+    tags: ['Landing Pages', 'Responsive UI', 'Media Kit', 'WhatsApp Integration', 'Bilingual (EN/BN)'],
+    links: [
+      { label: 'Fashion — AYRA', href: 'https://influencer-demo-website.mostaquenaim.com/ayra/' },
+      { label: 'Food & Travel', href: 'https://influencer-demo-website.mostaquenaim.com/food-travel/' },
+      { label: 'Lifestyle', href: 'https://influencer-demo-website.mostaquenaim.com/lifestyle/' },
+    ],
   },
   {
     title: 'TahamsBD',
@@ -39,6 +44,12 @@ const mainProjects = [
     tags: ['Next.js'],
     link: 'https://samm-tech.net/',
     image: '/images/sammtech-website-mock.png',
+  },
+  {
+    title: 'Investment Platform',
+    description:
+      'Client investment platform with investor KYC, bKash installment payments and a monthly profit-calculation engine, split across two servers by data sensitivity.',
+    tags: ['Next.js', 'NestJS', 'Prisma', 'Turborepo', 'bKash'],
   },
 ];
 
@@ -65,7 +76,7 @@ const otherProjects = [
   },
 ];
 
-function MainProjectCard({ project, index }) {
+function MainProjectCard({ project, index, fullWidth }) {
   const Wrapper = project.link ? motion.a : motion.div;
   const linkProps = project.link
     ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' }
@@ -79,10 +90,10 @@ function MainProjectCard({ project, index }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
       whileHover={{ y: -6 }}
-      className="group bg-surface border border-border rounded-xl overflow-hidden hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-colors flex flex-col"
+      className={`group bg-surface border border-border rounded-xl overflow-hidden hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-colors flex flex-col${fullWidth ? ' md:col-span-2' : ''}`}
     >
-      <div className="h-44 relative overflow-hidden border-b border-border">
-        {project.image ? (
+      {project.image && (
+        <div className="h-44 relative overflow-hidden border-b border-border">
           <Image
             src={project.image}
             alt={project.title}
@@ -90,12 +101,8 @@ function MainProjectCard({ project, index }) {
             sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-surface-hover to-background flex items-center justify-center">
-            <span className="font-mono text-2xl text-muted/60">{project.title}</span>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
           {project.title}
@@ -154,7 +161,12 @@ export default function ProjectsSection() {
       {/* Main Projects */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         {mainProjects.map((project, index) => (
-          <MainProjectCard key={project.title} project={project} index={index} />
+          <MainProjectCard
+            key={project.title}
+            project={project}
+            index={index}
+            fullWidth={mainProjects.length % 2 === 1 && index === mainProjects.length - 1}
+          />
         ))}
       </div>
 
